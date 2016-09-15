@@ -44,16 +44,16 @@ public class Field {
                 System.out.println("Вы пытаетесь стрелять в ту же ячейку");
                 show();
                 break;
-            default:
-                System.out.println("OUT OF RANGE");
         }
     }
 
     boolean isGameNotOver(){
-        if (cells[ship.position] == 'X') {
-            return true;
+        for (char cell : cells) {
+            if (cell == 'X') {
+                return  true;
+            }
         }
-        return false;
+        return  false;
     }
 
 }
