@@ -11,9 +11,10 @@ public class Main {
         field.showShip();
         field.show();
 
+        System.out.println("Game Started");
         do {
-            int i = player.doShot();
-            field.hitTheShip(i);
+            int shoot = player.doShot();
+            field.hitTheShip(shoot);
         } while (field.isGameNotOver());
     }
 }
