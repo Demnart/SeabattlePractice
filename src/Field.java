@@ -4,32 +4,27 @@ import java.util.Random;
  * Created by Артем on 15.09.2016.
  */
 public class Field {
-    public static final int SIZE= 10;
-    char [] cells = new char[SIZE];
+    public static final int SIZE = 10;
+    char[] cells = new char[SIZE];
     Ship ship;
 
-    void initCell(){
+    void initCell() {
         for (int i = 0; i < cells.length; i++) {
-             cells[i] = '.';
+            cells[i] = '.';
         }
     }
 
-    void setShip(Ship ship){
+    void setShip(Ship ship) {
         this.ship = ship;
+        cells[ship.position] = 'X';
     }
 
-    void showShip(){
-        Random random = new Random();
-        ship.position = 1 + random.nextInt(9);
-        cells[ship.position]= 'X';
-    }
-
-    void show(){
+    void show() {
         System.out.println(cells);
     }
 
-    void hitTheShip(int shoot){
-        switch (cells[shoot]){
+    void hitTheShip(int shoot) {
+        switch (cells[shoot]) {
             case '.':
                 System.out.println("Вы промазали");
                 cells[shoot] = '*';
@@ -47,13 +42,13 @@ public class Field {
         }
     }
 
-    boolean isGameNotOver(){
+    boolean isGameNotOver() {
         for (char cell : cells) {
             if (cell == 'X') {
-                return  true;
+                return true;
             }
         }
-        return  false;
+        return false;
     }
 
 }
